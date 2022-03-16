@@ -1,10 +1,9 @@
-import { Button } from '@mui/material'
+import Layout from "./components/Layout";
 
 function App() {
-
   return (
     <div className="App">
-      <Button>google</Button>
+      <Layout side={<p>Sidebar</p>} content={<p>Content</p>} />
     </div>
   )
 }
