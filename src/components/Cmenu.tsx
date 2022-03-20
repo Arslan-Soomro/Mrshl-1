@@ -39,7 +39,7 @@ const Cmenu = ({AncEl, menuItems}: props) => {
         }}
       >
 
-        {menuItems.map((item, ind) => <MenuItem onClick={handleClose} key={ind}>{item}</MenuItem>)}
+        {menuItems.map((item, ind) => <MenuItem onClick={handleClose} key={ind} sx={{fontSize: 15}}>{item}</MenuItem>)}
       </Menu>
     </div>
   );

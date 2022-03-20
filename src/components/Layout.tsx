@@ -1,12 +1,13 @@
 import CircleIcon from '@mui/icons-material/Circle';
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { Box, Button, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Tooltip, Typography, Card } from "@mui/material";
+import { Box, Button, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Tooltip, Typography, Card, TextField, InputAdornment, IconButton } from "@mui/material";
 import React from "react";
 import Cmenu from './Cmenu';
 import AddCircle from "@mui/icons-material/AddCircle";
 import Ccard from './Ccard';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import SearchIcon from '@mui/icons-material/Search';
 
 interface props {
     side: React.ReactNode,
@@ -105,19 +106,26 @@ const Layout = ({side, content} : props) => {
             <Box sx={{flexGrow: 1, p: 2}}>
                 <Typography variant="h6">General</Typography>
                 <Divider />
-                <Box sx={{p: 2, display: 'flex', gap: 2}}>
-                    <Button variant="outlined" size="small">Create Category</Button>
-                    <Cmenu
-                    menuItems={sideItems.map((item) => item.text)}
-                    AncEl={<Button
-                    variant="contained"
-                    disableElevation
-                    endIcon={<KeyboardArrowDownIcon />}
-                    size="small"
-                    >
-                        Categories
-                    </Button>} />
+
+                <Box sx={{p: 2, }}>
+                    
+                    <Box sx={{display: 'flex', gap: 2}}>
+                        <Button variant="outlined" size="small">Create Category</Button>
+                        <Cmenu
+                        menuItems={sideItems.map((item) => item.text)}
+                        AncEl={<Button
+                        variant="contained"
+                        disableElevation
+                        endIcon={<KeyboardArrowDownIcon />}
+                        size="small"
+                        >
+                            Categories
+                        </Button>} />
+                    </Box>
+
+                    <TextField size="small" sx={{width: 1, mt: 1}} InputProps={{endAdornment: <InputAdornment position="end"><IconButton><SearchIcon /></IconButton></InputAdornment>}}/>
                 </Box>
+                
                 <Divider />
                 {/* The Cards */}
                 <Box sx={{p: 2}}>

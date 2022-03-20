@@ -43,8 +43,8 @@ const Ccard = () => {
       <CardContent>
           <List sx={{p: 0}}>
               {links.map((item, ind) => (
-                <ListItem  key={ind}>
-                    <ListItemButton sx={{py: 1, m: 0, fontSize: 12}}>{item}</ListItemButton>
+                <ListItem  key={ind} sx={{p: 0}}>
+                    <ListItemButton sx={{py: 1, m: 0, fontSize: 14}}>{item}</ListItemButton>
                 </ListItem>))}
           </List>
       </CardContent>
