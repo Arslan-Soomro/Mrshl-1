@@ -1,30 +1,34 @@
-import { Box, Card, CardHeader, IconButton } from "@mui/material";
+import { Box, Card, CardHeader, IconButton, Button } from "@mui/material";
 import AddLinkIcon from '@mui/icons-material/AddLink';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react";
+import Cmenu from "./Cmenu";
+
+
+const catOptions = [
+    'Edit Category',
+    'Open All Links',
+    'Delete Category',
+    'Add Subcategory',
+]
 
 const Ccard = () => {
-
-const [optionsAnchorEl, setOptionsAnchorEl] = useState<HTMLButtonElement | null>(null);
-
-const handleOptionsClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    setOptionsAnchorEl(event.currentTarget);
-  };
-
-  const handleOptionsClose = () => {
-    setOptionsAnchorEl(null);
-  };
 
   return (
     <Card variant="outlined" sx={{ width: 300 }}>
       <CardHeader title="Linux" titleTypographyProps={{ fontSize: 20 }} action={
-          <Box>
+          <Box sx={{display: 'flex'}}>
               <IconButton>
-                <AddLinkIcon />
+                <AddLinkIcon /> 
               </IconButton>
-              <IconButton>
-                <MoreVertIcon />
-              </IconButton>
+              <Cmenu
+                    menuItems={catOptions}
+                    AncEl={
+                    <IconButton>
+                        <MoreVertIcon />
+                    </IconButton>
+                    }
+                />
           </Box>
       } />
     </Card>

@@ -1,20 +1,20 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 interface props {
-    AnEl: React.ReactNode,
+    AncEl: React.ReactElement<any, string>,
+    menuItems: string[]
 }
 
-const Cmenu = () => {
+const Cmenu = ({AncEl, menuItems}: props) => {
   
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
   
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setAnchorEl(event.currentTarget);
+    console.log("Hello World");
   };
 
   const handleClose = () => {
@@ -23,18 +23,8 @@ const Cmenu = () => {
 
   return (
     <div>
-      <Button
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        variant="contained"
-        disableElevation
-        endIcon={<KeyboardArrowDownIcon />}
-        size="small"
-      >
-        Categories
-      </Button> 
+
+      {React.cloneElement(AncEl, {onClick: handleClick})}
       
       <Menu
         anchorEl={anchorEl}
@@ -48,9 +38,8 @@ const Cmenu = () => {
             horizontal: 'left'
         }}
       >
-        <MenuItem onClick={handleClose}>General</MenuItem>
-        <MenuItem onClick={handleClose}>Implicit</MenuItem>
-        <MenuItem onClick={handleClose}>Explicit</MenuItem>
+
+        {menuItems.map((item, ind) => <MenuItem onClick={handleClose} key={ind}>{item}</MenuItem>)}
       </Menu>
     </div>
   );

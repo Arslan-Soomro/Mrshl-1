@@ -6,6 +6,7 @@ import React from "react";
 import Cmenu from './Cmenu';
 import AddCircle from "@mui/icons-material/AddCircle";
 import Ccard from './Ccard';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 interface props {
     side: React.ReactNode,
@@ -64,7 +65,7 @@ const styles = {
     },
 }
 
-const items = [
+const sideItems = [
 {
     text: 'General'
 },
@@ -74,7 +75,7 @@ const items = [
 {
     text: 'Explicit'
 },
-]
+];
 
 const Layout = ({side, content} : props) => {
     return (
@@ -88,7 +89,7 @@ const Layout = ({side, content} : props) => {
                         <ListItemIcon><AutoAwesomeMosaicIcon /></ListItemIcon>
                         <ListItemIcon><AddCircleIcon /></ListItemIcon>
                     </ListItem>
-                    {items.map((item, ind) => {
+                    {sideItems.map((item, ind) => {
                         return (
                         <Tooltip title={item.text} key={ind} placement="right">
                             <ListItem button sx={styles.listItem} divider>
@@ -106,7 +107,16 @@ const Layout = ({side, content} : props) => {
                 <Divider />
                 <Box sx={{p: 2, display: 'flex', gap: 2}}>
                     <Button variant="outlined" size="small">Create Category</Button>
-                    <Cmenu />
+                    <Cmenu
+                    menuItems={sideItems.map((item) => item.text)}
+                    AncEl={<Button
+                    variant="contained"
+                    disableElevation
+                    endIcon={<KeyboardArrowDownIcon />}
+                    size="small"
+                    >
+                        Categories
+                    </Button>} />
                 </Box>
                 <Divider />
                 {/* The Cards */}
