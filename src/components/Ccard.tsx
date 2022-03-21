@@ -9,17 +9,13 @@ const catOptions = [
     'Edit Category',
     'Open All Links',
     'Delete Category',
-]
+];
 
-const links = [
-    'arslan-soomro.github.io',
-    'facebook.com',
-    'google.com',
-    'twitter.com',
-    'linuxilize.com',
-]
+interface props {
+  links : string[]
+}
 
-const Ccard = () => {
+const Ccard = ({ links } : props) => {
 
   return (
     <Card variant="outlined" sx={{ width: 300 }}>
