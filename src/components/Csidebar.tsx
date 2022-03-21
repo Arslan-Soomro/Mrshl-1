@@ -55,10 +55,10 @@ const styles = {
 };
 
 interface props {
-    sideItems: {text: string}[]
+    sidebarItems: {text: string}[]
 }
 
-const Csidebar = ({sideItems} : props) => {
+const Csidebar = ({sidebarItems} : props) => {
 
     return(
         <Drawer variant="permanent" sx={{minWidth: styles.drawerWidth}} PaperProps={{sx: {minWidth: styles.drawerWidth, py: 0}}} open={true}>
@@ -68,7 +68,7 @@ const Csidebar = ({sideItems} : props) => {
                 <ListItemIcon><AutoAwesomeMosaicIcon /></ListItemIcon>
                 <ListItemIcon><AddCircleIcon /></ListItemIcon>
             </ListItem>
-            {sideItems.map((item, ind) => {
+            {sidebarItems.map((item, ind) => {
                 return (
                 <Tooltip title={item.text} key={ind} placement="right">
                     <ListItem button sx={styles.listItem} divider>
