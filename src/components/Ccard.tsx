@@ -1,7 +1,6 @@
 import { Link, Box, Card, CardHeader, IconButton, Divider, CardContent, List, ListItem, ListItemButton } from "@mui/material";
 import AddLinkIcon from '@mui/icons-material/AddLink';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useState } from "react";
 import Cmenu from "./Cmenu";
 
 
@@ -19,7 +18,7 @@ interface props {
 const Ccard = ({ cardTitle,  links } : props) => {
 
   return (
-    <Card variant="outlined" sx={{ width: 300 }}>
+    <Card variant="outlined" sx={{height: 1,}}>
       <CardHeader title={cardTitle} titleTypographyProps={{ fontSize: 20 }} action={
           <Box sx={{display: 'flex'}}>
               <IconButton>
