@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box/Box";
 import Ccard from "./Ccard";
 import {CATEGORY} from "../utils/customTypes";
+import { Grid } from "@mui/material";
 
 interface props {
     cats : CATEGORY[]
@@ -9,13 +10,15 @@ interface props {
 const Cardslist = ({ cats } : props) => {
 
     return (
-        <Box sx={{p: 2}}>
+        <Grid container rowSpacing={2} columnSpacing={3} sx={{p: 2}}>
             {cats.map((item) => {
                 return (
-                    <Ccard cardTitle={item.name} links={item.links} />
+                    <Grid item>
+                        <Ccard cardTitle={item.name} links={item.links} />
+                    </Grid>
                 )
             })}   
-        </Box>
+        </Grid>
     )
 
 };

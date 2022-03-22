@@ -20,6 +20,38 @@ export const boards = [
               'ubuntu.com',
               'linuxmint.com'
           ]
+      },
+      {
+        name : 'Windows Help',
+        links : [
+          'Microsoft.com',
+          'bing.com',
+        ]
+      },
+      {
+        name: "media",
+        links: [
+          "google.com",
+          "facebook.com",
+          "instagram.com",
+          "web.whatsapp.com",
+          "twitter.com",
+        ],
+      },
+      {
+          name: 'Linux Help',
+          links: [
+              'linuxilize.com',
+              'ubuntu.com',
+              'linuxmint.com'
+          ]
+      },
+      {
+        name : 'Windows Help',
+        links : [
+          'Microsoft.com',
+          'bing.com',
+        ]
       }
     ],
   },
