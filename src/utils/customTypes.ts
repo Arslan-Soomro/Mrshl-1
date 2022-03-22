@@ -1,10 +1,10 @@
 
-interface CATEGORY {
+export interface CATEGORY {
     name: string,
     links : string[]
 };
 
-interface BOARD {
+export interface BOARD {
     id: number,
     name: string,
     cats : CATEGORY[]

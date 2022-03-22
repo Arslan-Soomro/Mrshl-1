@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box/Box";
 import Ccard from "./Ccard";
-import CATEGORY from "../utils/customTypes";
+import {CATEGORY} from "../utils/customTypes";
 
 interface props {
     cats : CATEGORY[]
@@ -14,8 +14,7 @@ const Cardslist = ({ cats } : props) => {
                 return (
                     <Ccard cardTitle={item.name} links={item.links} />
                 )
-            })}
-            
+            })}   
         </Box>
     )
 

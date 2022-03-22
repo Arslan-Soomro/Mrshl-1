@@ -24,12 +24,15 @@ export const boards = [
     ],
   },
   {
-      name: 'Professional',
-      cats : [
-          {
-              name: 'Social',
-              links : ['linkedin.com', 'dribble.com']
-          }
-      ]
-  }
+    id : 1,
+    name: "Professional",
+    cats: [
+      {
+        name: "social",
+        links : ['linkedin.com', 'dribble.com']
+      },
+
+    ],
+  },
+
 ];

@@ -4,6 +4,8 @@ import { boards } from "./dumData";
 
 export const defaultBoards = boards;
 
+//TODO fix whatever is happening inside
+
 export const useStore = create<STORE>((set, get) => ({
     boards: defaultBoards
 }));

@@ -6,6 +6,8 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import SmartCardsList from "./components/SmartCardsList";
 
+//TODO make layout of cardslist responsive
+
 function App() {
   const boards = useStore((state) => state.boards);
 
