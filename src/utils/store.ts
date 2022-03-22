@@ -1,11 +1,11 @@
 import create from "zustand";
 import { STORE } from "./customTypes";
-import {sideItems as sidebarItems} from "./dumData";
+import { boards } from "./dumData";
 
-export const defaultSideItems = sidebarItems;
+export const defaultBoards = boards;
 
 export const useStore = create<STORE>((set, get) => ({
-    sideItems: defaultSideItems,
+    boards: defaultBoards
 }));
 
 export default useStore;

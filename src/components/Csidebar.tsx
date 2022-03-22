@@ -1,7 +1,8 @@
 import CircleIcon from '@mui/icons-material/Circle';
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Tooltip, Typography } from "@mui/material";
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Tooltip, Typography, IconButton } from "@mui/material";
+import FormDialog from './FormDialog';
 
 
 const styles = {
@@ -55,25 +56,26 @@ const styles = {
 };
 
 interface props {
-    sidebarItems: {text: string}[]
+    sidebarItems: {id: number, name: string}[]
 }
 
 const Csidebar = ({sidebarItems} : props) => {
 
     return(
         <Drawer variant="permanent" sx={{minWidth: styles.drawerWidth}} PaperProps={{sx: {minWidth: styles.drawerWidth, py: 0}}} open={true}>
+        
         <List>
             <Typography variant="h6" sx={{textAlign: 'center'}}>M<Typography sx={{display : {xs: 'none', sm: 'inline'}}}>RSHL</Typography></Typography>
             <ListItem sx={styles.listItemHeader} divider>
                 <ListItemIcon><AutoAwesomeMosaicIcon /></ListItemIcon>
-                <ListItemIcon><AddCircleIcon /></ListItemIcon>
+                <ListItemIcon><FormDialog opener={<IconButton><AddCircleIcon /></IconButton>} title={"Boards"} label={"Board Name"} btnText={"Add Board"} btnAction={() => console.log("Hello World")} /></ListItemIcon>
             </ListItem>
             {sidebarItems.map((item, ind) => {
                 return (
-                <Tooltip title={item.text} key={ind} placement="right">
+                <Tooltip title={item.name} key={ind} placement="right">
                     <ListItem button sx={styles.listItem} divider>
                         <ListItemIcon ><CircleIcon fontSize="small" /></ListItemIcon>
-                        <ListItemText sx={styles.listItemText}>{item.text}</ListItemText>
+                        <ListItemText sx={styles.listItemText}>{item.name}</ListItemText>
                     </ListItem>
                 </Tooltip>
                 )

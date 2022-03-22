@@ -12,14 +12,15 @@ const catOptions = [
 ];
 
 interface props {
-  links : string[]
+  links : string[],
+  cardTitle: string,
 }
 
-const Ccard = ({ links } : props) => {
+const Ccard = ({ cardTitle,  links } : props) => {
 
   return (
     <Card variant="outlined" sx={{ width: 300 }}>
-      <CardHeader title="Linux" titleTypographyProps={{ fontSize: 20 }} action={
+      <CardHeader title={cardTitle} titleTypographyProps={{ fontSize: 20 }} action={
           <Box sx={{display: 'flex'}}>
               <IconButton>
                 <AddLinkIcon /> 

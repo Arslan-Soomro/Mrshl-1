@@ -2,7 +2,6 @@ import { Box, Divider, Typography, Button, TextField, InputAdornment, IconButton
 import Cmenu from "./Cmenu";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
-import { sideItems } from "../utils/dumData";
 
 const Header = () => {
 
@@ -16,7 +15,7 @@ const Header = () => {
             <Box sx={{display: 'flex', gap: 2}}>
                 <Button variant="outlined" size="small">Create Category</Button>
                 <Cmenu
-                menuItems={sideItems.map((item) => item.text)}
+                menuItems={['General', 'Explicit']}
                 AncEl={<Button
                 variant="contained"
                 disableElevation

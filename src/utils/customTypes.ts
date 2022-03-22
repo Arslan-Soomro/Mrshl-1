@@ -1,8 +1,15 @@
 
-interface SIDE_ITEM {
-    text: string
-}
+interface CATEGORY {
+    name: string,
+    links : string[]
+};
+
+interface BOARD {
+    id: number,
+    name: string,
+    cats : CATEGORY[]
+};
 
 export interface STORE {
-    sideItems: SIDE_ITEM[]
+    boards : BOARD[]
 }

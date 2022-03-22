@@ -1,12 +1,21 @@
 import Box from "@mui/material/Box/Box";
 import Ccard from "./Ccard";
-import { links } from "../utils/dumData";
+import CATEGORY from "../utils/customTypes";
 
-const Cardslist = () => {
+interface props {
+    cats : CATEGORY[]
+}
+
+const Cardslist = ({ cats } : props) => {
 
     return (
         <Box sx={{p: 2}}>
-            <Ccard links={links} />
+            {cats.map((item) => {
+                return (
+                    <Ccard cardTitle={item.name} links={item.links} />
+                )
+            })}
+            
         </Box>
     )
 
