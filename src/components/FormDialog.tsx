@@ -13,7 +13,7 @@ interface props {
     description?: string,
     label: string,
     btnText: string,
-    btnAction: () => void,
+    btnAction: (input: string | undefined) => void,
 }
 
 const FormDialog = ({ opener, title, description, label, btnText, btnAction } : props) => {
@@ -43,11 +43,12 @@ const FormDialog = ({ opener, title, description, label, btnText, btnAction } : 
             label={label}
             fullWidth
             variant="standard"
+            inputRef={inputRef}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={() => {btnAction(); handleClose()}}>{btnText}</Button>
+          <Button onClick={() => {btnAction(inputRef?.current?.value); handleClose()}}>{btnText}</Button>
         </DialogActions>
       </Dialog>
     </div>

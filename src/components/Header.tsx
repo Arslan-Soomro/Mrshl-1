@@ -10,7 +10,7 @@ const Header = () => {
     const { boardId, catName } = useParams(); 
 
     const boards = useStore((state) => state.boards);
-    const board = boards.find((item) => item.id === Number(boardId));
+    const board = boards.find((item) => item.id === boardId);
 
     return (
         <>

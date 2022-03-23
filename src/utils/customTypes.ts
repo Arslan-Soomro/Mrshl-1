@@ -6,15 +6,16 @@ export interface CAT_ITEM{
 
 export interface CATEGORY {
     name: string,
-    items : CAT_ITEM[]
+    items?: CAT_ITEM[]
 };
 
 export interface BOARD {
-    id: number,
+    id: string,
     name: string,
     cats : CATEGORY[]
 };
 
 export interface STORE {
-    boards : BOARD[]
+    boards : BOARD[],
+    setBoard : (newBoards: BOARD[]) => void; 
 }

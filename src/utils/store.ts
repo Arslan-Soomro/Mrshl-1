@@ -1,5 +1,5 @@
 import create from "zustand";
-import { STORE } from "./customTypes";
+import { BOARD, STORE } from "./customTypes";
 import { boards } from "./dumData";
 
 export const defaultBoards = boards;
@@ -7,7 +7,12 @@ export const defaultBoards = boards;
 //TODO fix whatever is happening inside
 
 export const useStore = create<STORE>((set, get) => ({
-    boards: defaultBoards
+    boards: defaultBoards,
+    setBoard: (newBoards) => {
+        set((state) => ({
+            boards : newBoards
+        }))
+    }
 }));
 
 export default useStore;

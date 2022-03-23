@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import FormDialog from "./FormDialog";
 import { Link } from "react-router-dom";
+import { pushBoardData } from "../utils/dbUtils";
 
 const styles = {
   drawerWidth: {
@@ -66,7 +67,7 @@ const styles = {
 };
 
 interface props {
-  sidebarItems: { id: number; name: string }[];
+  sidebarItems: { id: string; name: string }[];
 }
 
 const Csidebar = ({ sidebarItems }: props) => {
@@ -98,7 +99,7 @@ const Csidebar = ({ sidebarItems }: props) => {
               title={"Boards"}
               label={"Board Name"}
               btnText={"Add Board"}
-              btnAction={() => console.log("Hello World")}
+              btnAction={(inputName) => pushBoardData({ name: inputName, cats: [{name: 'main', items: []}]})}
             />
           </ListItemIcon>
         </ListItem>
