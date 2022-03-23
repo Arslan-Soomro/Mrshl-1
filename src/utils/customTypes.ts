@@ -1,7 +1,12 @@
 
+export interface CAT_ITEM{
+    name : string,
+    links : string[],
+}
+
 export interface CATEGORY {
     name: string,
-    links : string[]
+    items : CAT_ITEM[]
 };
 
 export interface BOARD {

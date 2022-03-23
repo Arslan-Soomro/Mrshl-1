@@ -1,70 +1,49 @@
-export const boards = [
+import { BOARD } from "./customTypes";
+
+export const boards: BOARD[] = [
   {
-    id : 0,
+    id: 0,
     name: "General",
     cats: [
       {
-        name: "media",
-        links: [
-          "google.com",
-          "facebook.com",
-          "instagram.com",
-          "web.whatsapp.com",
-          "twitter.com",
+        name: "popular",
+        items: [
+          {
+            name: "media",
+            links: [
+              "google.com",
+              "facebook.com",
+              "instagram.com",
+              "web.whatsapp.com",
+              "twitter.com",
+            ],
+          },
+          {
+            name: "Linux Help",
+            links: ["linuxilize.com", "ubuntu.com", "linuxmint.com"],
+          },
+          {
+            name: "Windows Help",
+            links: ["Microsoft.com", "bing.com"],
+          },
         ],
       },
-      {
-          name: 'Linux Help',
-          links: [
-              'linuxilize.com',
-              'ubuntu.com',
-              'linuxmint.com'
-          ]
-      },
-      {
-        name : 'Windows Help',
-        links : [
-          'Microsoft.com',
-          'bing.com',
-        ]
-      },
-      {
-        name: "media",
-        links: [
-          "google.com",
-          "facebook.com",
-          "instagram.com",
-          "web.whatsapp.com",
-          "twitter.com",
-        ],
-      },
-      {
-          name: 'Linux Help',
-          links: [
-              'linuxilize.com',
-              'ubuntu.com',
-              'linuxmint.com'
-          ]
-      },
-      {
-        name : 'Windows Help',
-        links : [
-          'Microsoft.com',
-          'bing.com',
-        ]
-      }
     ],
   },
+
   {
-    id : 1,
+    id: 1,
     name: "Professional",
     cats: [
       {
         name: "social",
-        links : ['linkedin.com', 'dribble.com']
+        items: [
+          {
+            name: "popular",
+            links: ["linkedin.com", "dribble.com"],
+          },
+        ],
       },
-
     ],
   },
-
 ];

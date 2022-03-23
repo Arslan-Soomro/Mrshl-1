@@ -63,7 +63,6 @@ const Csidebar = ({sidebarItems} : props) => {
 
     return(
         <Drawer variant="permanent" sx={{minWidth: styles.drawerWidth}} PaperProps={{sx: {minWidth: styles.drawerWidth, py: 0}}} open={true}>
-        
         <List>
             <Typography variant="h6" sx={{textAlign: 'center'}}>M<Typography sx={{display : {xs: 'none', sm: 'inline'}}}>RSHL</Typography></Typography>
             <ListItem sx={styles.listItemHeader} divider>
