@@ -10,10 +10,10 @@ interface props {
 const Cardslist = ({ cats } : props) => {
 
     return (
-        <Grid container rowSpacing={3} columnSpacing={3} justifyContent="center" alignItems="stretch" sx={{p: 2}}>
+        <Grid container rowSpacing={3} columnSpacing={3} justifyContent={{sx: "center", sm: 'flex-start'}} alignItems="stretch" sx={{p: 2}}>
             {cats.map((item, ind) => {
                 return (
-                    <Grid item key={ind}>
+                    <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={ind}>
                         <Ccard cardTitle={item.name} links={item.links} />
                     </Grid>
                 )

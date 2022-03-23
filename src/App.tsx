@@ -11,10 +11,6 @@ import SmartCardsList from "./components/SmartCardsList";
 function App() {
   const boards = useStore((state) => state.boards);
 
-  useEffect(() => {
-    console.log(boards.map((item) => ({ id: item.id, name: item.name })));
-  }, []);
-
   return (
     <div className="App">
       <Routes>
