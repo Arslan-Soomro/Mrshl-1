@@ -5,7 +5,9 @@ import { Routes, Route } from "react-router-dom";
 import SmartSidebar from "./components/SmartSidebar";
 import RouteCardsList from "./components/RouteCardsList";
 
-//TODO make layout of cardslist responsive
+//TODO Connect the app with firebase
+//TODO fetch data from firebase
+//TODO Write data to firebase
 
 function App() {
   const boards = useStore((state) => state.boards);
