@@ -33,7 +33,7 @@ const Header = () => {
                 </Button>} />
             </Box>
 
-            <TextField size="small" sx={{width: 1, mt: 1}} InputProps={{endAdornment: <InputAdornment position="end"><IconButton><SearchIcon /></IconButton></InputAdornment>}}/>
+            {/* <TextField size="small" sx={{width: 1, mt: 1}} InputProps={{endAdornment: <InputAdornment position="end"><IconButton><SearchIcon /></IconButton></InputAdornment>}}/> */}
         </Box>
         
         <Divider />
