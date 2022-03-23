@@ -1,10 +1,9 @@
 import Layout from "./components/Layout";
-import Csidebar from "./components/Csidebar";
 import Header from "./components/Header";
 import useStore from "./utils/store";
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
-import SmartCardsList from "./components/SmartCardsList";
+import SmartSidebar from "./components/SmartSidebar";
+import RouteCardsList from "./components/RouteCardsList";
 
 //TODO make layout of cardslist responsive
 
@@ -14,7 +13,59 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {/*boards.map((item) => {
+
+        <Route path="/boards/:boardId/:catName" 
+          element={
+            <Layout 
+              side={
+                <SmartSidebar />
+              }
+              content={
+                <>
+                  <Header />
+                  <RouteCardsList />
+                </>
+              }
+            />
+          } 
+        />
+
+        <Route
+          path="*"
+          element={
+            <Layout
+              side={<SmartSidebar />}
+              content={
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <h1>404 Not Found</h1>
+                </div>
+              }
+            />
+          }
+        />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+/*
+                <Csidebar
+                  sidebarItems={boards.map((item) => ({
+                    id: item.id,
+                    name: item.name,
+                  }))}
+                />*/
+
+                        /*boards.map((item) => {
           return (
             <Route
               path={item.name}
@@ -38,41 +89,4 @@ function App() {
               }
             />
           );
-        })*/}
-
-        
-
-        <Route
-          path="*"
-          element={
-            <Layout
-              side={
-                <Csidebar
-                  sidebarItems={boards.map((item) => ({
-                    id: item.id,
-                    name: item.name,
-                  }))}
-                />
-              }
-              content={
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <h1>404 Not Found</h1>
-                </div>
-              }
-            />
-          }
-        />
-      </Routes>
-    </div>
-  );
-}
-
-export default App;
+        })*/
