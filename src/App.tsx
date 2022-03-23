@@ -14,9 +14,36 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="general" element={<p>Hello World</p>} />
+        {/*boards.map((item) => {
+          return (
+            <Route
+              path={item.name}
+              element={
+                <Layout
+                  side={
+                    <Csidebar
+                      sidebarItems={boards.map((item) => ({
+                        id: item.id,
+                        name: item.name,
+                      }))}
+                    />
+                  }
+                  content={
+                    <>
+                      <Header />
+                      <SmartCardsList boardId={item.id} catName="popular" />
+                    </>
+                  }
+                />
+              }
+            />
+          );
+        })*/}
+
+        
+
         <Route
-          path="/"
+          path="*"
           element={
             <Layout
               side={
@@ -28,10 +55,17 @@ function App() {
                 />
               }
               content={
-                <>
-                  <Header />
-                  <SmartCardsList boardId={0} />
-                </>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <h1>404 Not Found</h1>
+                </div>
               }
             />
           }

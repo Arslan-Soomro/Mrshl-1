@@ -4,16 +4,18 @@ import Cardslist from "./Cardslist";
 
 interface props {
     boardId : number,
+    catName : string
 }
 
-const SmartCardsList = ({ boardId } : props) => {
+const SmartCardsList = ({ boardId, catName } : props) => {
 
     const allBoards = useStore((state) => state.boards);
     const board = allBoards.find((item) => item.id === boardId);
+    const cat = board?.cats.find((item) => item.name === catName);
 
-    if(board != undefined){
+    if(cat != undefined){
         return (
-            <Cardslist cats={board.cats} />
+            <Cardslist catItems={cat.items} />
         )
     }
 
