@@ -2,12 +2,19 @@ import { Box, Divider, Typography, Button, TextField, InputAdornment, IconButton
 import Cmenu from "./Cmenu";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
+import useStore from "../utils/store";
+import { useParams } from "react-router-dom";
 
 const Header = () => {
 
+    const { boardId, catName } = useParams(); 
+
+    const boards = useStore((state) => state.boards);
+    const board = boards.find((item) => item.id === Number(boardId));
+
     return (
         <>
-        <Typography variant="h6">General</Typography>
+        <Typography variant="h6">{board?.name ? board.name : 'No Board' }</Typography>
         <Divider />
 
         <Box sx={{p: 2}}>
@@ -15,7 +22,7 @@ const Header = () => {
             <Box sx={{display: 'flex', gap: 2}}>
                 <Button variant="outlined" size="small">Create Category</Button>
                 <Cmenu
-                menuItems={['General', 'Explicit']}
+                menuItems={board?.cats ? board.cats.map((item) => item.name) : ['main']}
                 AncEl={<Button
                 variant="contained"
                 disableElevation

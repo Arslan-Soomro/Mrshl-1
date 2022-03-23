@@ -6,6 +6,14 @@ export const boards: BOARD[] = [
     name: "General",
     cats: [
       {
+        name: 'main',
+        items: [
+          { name: 'design',
+            links: ['zoom.com', 'dribble.com', 'unsplash.com', 'pexels.com']
+          }
+        ]
+      },
+      {
         name: "popular",
         items: [
           {
@@ -35,6 +43,19 @@ export const boards: BOARD[] = [
     id: 1,
     name: "Professional",
     cats: [
+      {
+        name : 'main',
+        items : [
+          {
+            name : 'Open Source OS',
+            links : [
+              'Linux.com',
+              'Dippin.com',
+              'Zeepin.com'
+            ]
+          }
+        ]
+      },
       {
         name: "social",
         items: [

@@ -105,7 +105,7 @@ const Csidebar = ({ sidebarItems }: props) => {
         {sidebarItems.map((item, ind) => {
           return (
             <Tooltip title={item.name} key={ind} placement="right">
-              <Link to={item.name} style={{textDecoration: 'none'}}>
+              <Link replace to={`/boards/${item.id}/main`} style={{textDecoration: 'none'}}>
                 <ListItem button sx={styles.listItem} divider>
                   <ListItemIcon>
                     <CircleIcon fontSize="small" />
