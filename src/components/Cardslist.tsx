@@ -9,6 +9,8 @@ interface props {
 
 const Cardslist = ({ cats } : props) => {
 
+    //TODO Sort Cards Before Displaying
+
     return (
         <Grid container rowSpacing={3} columnSpacing={3} justifyContent={{sx: "center", sm: 'flex-start'}} alignItems="stretch" sx={{p: 2}}>
             {cats.map((item, ind) => {

@@ -47,7 +47,7 @@ const FormDialog = ({ opener, title, description, label, btnText, btnAction } : 
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={btnAction}>{btnText}</Button>
+          <Button onClick={() => {btnAction(); handleClose()}}>{btnText}</Button>
         </DialogActions>
       </Dialog>
     </div>

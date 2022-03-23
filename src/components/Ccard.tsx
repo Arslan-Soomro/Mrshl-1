@@ -18,8 +18,8 @@ interface props {
 const Ccard = ({ cardTitle,  links } : props) => {
 
   return (
-    <Card variant="outlined" sx={{height: 1,}}>
-      <CardHeader title={cardTitle} titleTypographyProps={{ fontSize: 20 }} action={
+    <Card variant="outlined" sx={{height: 1}}>
+      <CardHeader sx={{px: 2, py: 1.5}} title={cardTitle} titleTypographyProps={{ fontSize: 18 }} action={
           <Box sx={{display: 'flex'}}>
               <IconButton>
                 <AddLinkIcon /> 

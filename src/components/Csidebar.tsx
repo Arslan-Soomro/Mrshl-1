@@ -7,7 +7,7 @@ import FormDialog from './FormDialog';
 
 const styles = {
     drawerWidth : {
-        xs: 55  ,
+        xs: 65  ,
         sm: 200,
     },
 
