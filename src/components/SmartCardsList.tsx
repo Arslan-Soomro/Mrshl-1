@@ -3,7 +3,7 @@ import useStore from "../utils/store";
 import Cardslist from "./Cardslist";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import FormDialog from "./FormDialog";
-import { pushCatItem } from "../utils/dbUtils";
+import { pushCatItem, pushItemLink } from "../utils/dbUtils";
 
 interface props {
   boardId: string;
@@ -47,6 +47,8 @@ const SmartCardsList = ({ boardId, catName }: props) => {
 
   return (
     <Cardslist
+      boardId={boardId}
+      catName={catName}
       catItems={cat?.items}
       AddPlaceholder={
         <Box>

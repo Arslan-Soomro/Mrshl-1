@@ -80,4 +80,30 @@ export const pushCatItem = (newItemName: string, curCatName: string, boardId: st
   }
 };
 
+export const pushItemLink = (linkAddr: string, catName: string, boardId: string, itemName: string, allCatData: CATEGORY[]) => {
+
+  
+  const db = getDatabase(fbApp);
+  const boardDataRef = ref(db, 'boards/' + boardId);
+  
+  
+  const draft = allCatData;
+  const curCatInd = draft?.findIndex((item) => item.name == catName);
+  
+  if(draft != undefined && curCatInd != -1){
+    const curItemInd = draft[curCatInd].items?.findIndex((item) => item.name == itemName);
+    if(curItemInd != -1 && curItemInd != undefined && draft[curCatInd].items != undefined){
+      //@ts-ignore
+      draft[curCatInd].items[curItemInd].links?.push(linkAddr);
+      
+      update(boardDataRef, {
+        'cats' : draft
+      });
+    }
+  }
+
+
+
+
+};
 

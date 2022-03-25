@@ -9,9 +9,7 @@ import fbApp from "./utils/firebase";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { BOARD } from "./utils/customTypes";
 
-//TODO Connect the app with firebase
-//TODO fetch data from firebase
-//TODO Write data to firebase
+//TODO make add Link icon actually add link to the Cateogry Item
 
 function App() {
   const boards = useStore((state) => state.boards);
@@ -25,8 +23,6 @@ function App() {
 
       //Data we receive from firebase is in key value pairs
       //so we format it into an array so it is usable here
-
-
       
       const formattedData = Object.entries(data).map((item) => {
         return {
@@ -89,36 +85,3 @@ function App() {
 }
 
 export default App;
-/*
-                <Csidebar
-                  sidebarItems={boards.map((item) => ({
-                    id: item.id,
-                    name: item.name,
-                  }))}
-                />*/
-
-                        /*boards.map((item) => {
-          return (
-            <Route
-              path={item.name}
-              element={
-                <Layout
-                  side={
-                    <Csidebar
-                      sidebarItems={boards.map((item) => ({
-                        id: item.id,
-                        name: item.name,
-                      }))}
-                    />
-                  }
-                  content={
-                    <>
-                      <Header />
-                      <SmartCardsList boardId={item.id} catName="popular" />
-                    </>
-                  }
-                />
-              }
-            />
-          );
-        })*/

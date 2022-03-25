@@ -6,12 +6,12 @@ import * as React from "react";
 interface props {
   catItems: CAT_ITEM[] | undefined;
   AddPlaceholder?: React.ReactElement;
+  catName: string,
+  boardId: string,
 }
 
-const Cardslist = ({ catItems, AddPlaceholder }: props) => {
-  //TODO Sort Cards Before Displaying
+const Cardslist = ({ catItems, AddPlaceholder,  catName, boardId}: props) => {
 
-  //console.log(catItems);
 
   return (
     <Grid
@@ -26,7 +26,7 @@ const Cardslist = ({ catItems, AddPlaceholder }: props) => {
         ? catItems.map((item, ind) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={ind}>
-                <Ccard cardTitle={item.name} links={item.links} />
+                <Ccard boardId={boardId} catName={catName} cardTitle={item.name} links={item.links} />
               </Grid>
             );
           })

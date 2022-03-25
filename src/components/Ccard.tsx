@@ -2,6 +2,9 @@ import { Link, Box, Card, CardHeader, IconButton, Divider, CardContent, List, Li
 import AddLinkIcon from '@mui/icons-material/AddLink';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Cmenu from "./Cmenu";
+import FormDialog from "./FormDialog";
+import useStore from "../utils/store";
+import { pushItemLink } from "../utils/dbUtils";
 
 
 const catOptions = [
@@ -13,18 +16,38 @@ const catOptions = [
 interface props {
   links : string[],
   cardTitle: string,
+  catName: string,
+  boardId: string
 }
 
-const Ccard = ({ cardTitle,  links } : props) => {
+const Ccard = ({ cardTitle,  links, catName, boardId } : props) => {
+
+  const boards = useStore((state) => state.boards);
+  const board = boards?.find((item) => item.id === boardId);
+  const catData = board?.cats;
+
+  const addActionHandler = (inpStr: string | undefined) => {
+    if(inpStr != undefined && catName != undefined && boardId != undefined && catData != undefined){
+      pushItemLink(inpStr, catName, boardId, cardTitle, catData);
+    }
+  }
 
   if(cardTitle != undefined && links != undefined){
   return (
     <Card variant="outlined" sx={{height: 1}}>
       <CardHeader sx={{px: 2, py: 1.5}} title={cardTitle} titleTypographyProps={{ fontSize: 18 }} action={
           <Box sx={{display: 'flex'}}>
-              <IconButton>
-                <AddLinkIcon /> 
-              </IconButton>
+            <FormDialog 
+            opener={            
+            <IconButton>
+              <AddLinkIcon /> 
+            </IconButton>}
+            title="link"
+            label="Link Address"
+            btnText="Add Link"
+            btnAction={addActionHandler}
+            />
+  
               <Cmenu
                     menuItems={catOptions}
                     AncEl={
