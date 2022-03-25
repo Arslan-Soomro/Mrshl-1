@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 interface props {
     AncEl: React.ReactElement<any, string>,
-    menuItems: string[]
+    menuItems: string[] | null
 }
 
 const Cmenu = ({AncEl, menuItems}: props) => {
@@ -17,7 +17,6 @@ const Cmenu = ({AncEl, menuItems}: props) => {
   
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setAnchorEl(event.currentTarget);
-    console.log("Hello World");
   };
 
   const handleClose = () => {
@@ -48,7 +47,7 @@ const Cmenu = ({AncEl, menuItems}: props) => {
         }}
       >
 
-        {menuItems.map((item, ind) => <MenuItem onClick={itemClickHandler} key={ind} data-name={item} sx={{fontSize: 15}}>{item}</MenuItem>)}
+        {menuItems != null ? menuItems.map((item, ind) => <MenuItem onClick={itemClickHandler} key={ind} data-name={item} sx={{fontSize: 15}}>{item}</MenuItem>) : null}
       </Menu>
     </div>
   );

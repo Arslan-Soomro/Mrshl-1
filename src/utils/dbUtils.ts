@@ -22,46 +22,37 @@ export const deleteBoardData = (boardId: string) => {
   }
 };
 
-/*
-export const pushCatBoard = (catBoardName: string, currentCatName: string, prevCatData: CATEGORY[], boardId: string) => {
-
+export const pushCat = (newCatName: string, boardId: string, allCatData: CATEGORY[] | undefined) => {
   const db = getDatabase(fbApp);
+  const boardDataRef = ref(db, 'boards/' + boardId);
+  const defaultCat = {
+    name: newCatName.toLowerCase(),
+    items: []
+  };
 
-  const defaultItems = [{
-    name: 'Search',
-    links: ['https://www.google.com']
-  }];
-
-  const catData = prevCatData.find((item) => item.name === currentCatName);
-
-
-  if(catData != undefined){
-
-    const boardDataRef = ref(db, 'boards/' + boardId);
+  if(allCatData == undefined){
     update(boardDataRef, {
-      'cats' : [
-        ...prevCatData,
-        {
-          name: catBoardName,
-          items : defaultItems,
-        }
-      ]
+      'cats' : [ defaultCat ],
     });
-  
+  }else{
+    const draft = allCatData;
+    draft.push(defaultCat);
+    update(boardDataRef, {
+      'cats' : draft,
+    });
   }
-};
-*/
 
+};
 
 export const pushCatItem = (newItemName: string, curCatName: string, boardId: string, allCatData: CATEGORY[] | undefined ) => {
 
   const db = getDatabase(fbApp);
+  const boardDataRef = ref(db, 'boards/' + boardId);
   const defaultItem = {
     name: newItemName,
     links: ['google.com']
   }
-  const boardDataRef = ref(db, 'boards/' + boardId);
-
+  
   if(allCatData == undefined){//If there are no categories, initialize a category with default Item
     update(boardDataRef, {
       'cats' : [ {name: 'main', items: [defaultItem]} ],
@@ -87,5 +78,6 @@ export const pushCatItem = (newItemName: string, curCatName: string, boardId: st
 
     }
   }
-
 };
+
+

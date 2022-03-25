@@ -4,6 +4,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
 import useStore from "../utils/store";
 import { useParams } from "react-router-dom";
+import FormDialog from "./FormDialog";
+import { pushCat } from "../utils/dbUtils";
 
 const Header = () => {
 
@@ -11,6 +13,12 @@ const Header = () => {
 
     const boards = useStore((state) => state.boards);
     const board = boards.find((item) => item.id === boardId);
+
+    const addCatActionHandler = (inpStr: string | undefined) => {
+        if(boardId != undefined && board != undefined && inpStr != undefined){
+            pushCat(inpStr, boardId, board.cats);
+        }
+    }
 
     return (
         <>
@@ -20,9 +28,16 @@ const Header = () => {
         <Box sx={{p: 2}}>
             
             <Box sx={{display: 'flex', gap: 2}}>
-                <Button variant="outlined" size="small">Create Category</Button>
+                <FormDialog 
+                opener={<Button variant="outlined" size="small">Create Category</Button>}
+                title="Category"
+                label="Category Name"
+                btnText="Add Category"
+                btnAction={addCatActionHandler}
+                />
+                
                 <Cmenu
-                menuItems={board?.cats ? board.cats.map((item) => item.name) : ['main']}
+                menuItems={board?.cats ? board.cats.map((item) => item.name) : null}
                 AncEl={<Button
                 variant="contained"
                 disableElevation

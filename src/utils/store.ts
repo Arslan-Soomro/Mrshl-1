@@ -8,9 +8,9 @@ const defaultBoards = boards;
 //TODO Remove Default Boards
 
 export const useStore = create<STORE>((set, get) => ({
-    boards: defaultBoards,
+    boards: [],
     setBoard: (newBoards) => {
-        set((state) => ({
+        set(() => ({
             boards : newBoards
         }))
     }
