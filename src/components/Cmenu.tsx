@@ -8,6 +8,8 @@ interface props {
     menuItems: string[] | null
 }
 
+//FIXME it doesn't work properly for cards, so adjust it.
+
 const Cmenu = ({AncEl, menuItems}: props) => {
   
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);

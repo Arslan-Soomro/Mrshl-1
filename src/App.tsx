@@ -42,6 +42,28 @@ function App() {
     <div className="App">
       <Routes>
 
+      <Route
+          path="/"
+          element={
+            <Layout
+              side={<SmartSidebar />}
+              content={
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <h3>Click any of the sidebar items to go to a board</h3>
+                </div>
+              }
+            />
+          }
+        />
+
         <Route path="/boards/:boardId/:catName" 
           element={
             <Layout 
