@@ -17,6 +17,7 @@ interface props {
 
 const Ccard = ({ cardTitle,  links } : props) => {
 
+  if(cardTitle != undefined && links != undefined){
   return (
     <Card variant="outlined" sx={{height: 1}}>
       <CardHeader sx={{px: 2, py: 1.5}} title={cardTitle} titleTypographyProps={{ fontSize: 18 }} action={
@@ -47,8 +48,10 @@ const Ccard = ({ cardTitle,  links } : props) => {
           </List>
       </CardContent>
 
-    </Card>
-  );
+    </Card>);
+  }
+
+  return null;
 };
 
 export default Ccard;

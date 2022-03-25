@@ -2,9 +2,10 @@ import create from "zustand";
 import { BOARD, STORE } from "./customTypes";
 import { boards } from "./dumData";
 
-export const defaultBoards = boards;
 
-//TODO fix whatever is happening inside
+
+const defaultBoards = boards;
+//TODO Remove Default Boards
 
 export const useStore = create<STORE>((set, get) => ({
     boards: defaultBoards,

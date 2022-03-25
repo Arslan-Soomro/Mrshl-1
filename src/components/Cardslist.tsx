@@ -1,16 +1,17 @@
 import Ccard from "./Ccard";
 import { CAT_ITEM } from "../utils/customTypes";
 import { Grid } from "@mui/material";
-import FormDialog from "./FormDialog";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import { Box, IconButton, Typography } from "@mui/material";
+import * as React from "react";
 
 interface props {
   catItems: CAT_ITEM[] | undefined;
+  AddPlaceholder?: React.ReactElement;
 }
 
-const Cardslist = ({ catItems }: props) => {
+const Cardslist = ({ catItems, AddPlaceholder }: props) => {
   //TODO Sort Cards Before Displaying
+
+  //console.log(catItems);
 
   return (
     <Grid
@@ -31,20 +32,7 @@ const Cardslist = ({ catItems }: props) => {
           })
         : null}
       <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-        <Box>
-          <FormDialog
-            opener={
-              <IconButton>
-                <AddCircleOutlineIcon fontSize="large" />
-              </IconButton>
-            }
-            title="Category Board"
-            label="Category Board Name"
-            btnText="Add Board"
-            btnAction={(inp) => console.log("Hello World")}
-          />
-          {/* <Typography>Add Category Board</Typography> */}
-        </Box>
+          { AddPlaceholder != undefined ? React.cloneElement(AddPlaceholder) : null}
       </Grid>
     </Grid>
   );

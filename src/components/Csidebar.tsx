@@ -14,6 +14,7 @@ import {
 import FormDialog from "./FormDialog";
 import { Link } from "react-router-dom";
 import { pushBoardData } from "../utils/dbUtils";
+import { createDefaultCatBoard } from "../utils/utils";
 
 const styles = {
   drawerWidth: {
@@ -99,7 +100,7 @@ const Csidebar = ({ sidebarItems }: props) => {
               title={"Boards"}
               label={"Board Name"}
               btnText={"Add Board"}
-              btnAction={(inputName) => pushBoardData({ name: inputName, cats: [{name: 'main', items: []}]})}
+              btnAction={(inputName) => pushBoardData(createDefaultCatBoard(inputName))}
             />
           </ListItemIcon>
         </ListItem>

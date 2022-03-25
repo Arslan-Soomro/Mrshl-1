@@ -2,7 +2,7 @@ import { BOARD } from "./customTypes";
 
 export const boards: BOARD[] = [
   {
-    id: 0,
+    id: '0',
     name: "General",
     cats: [
       {
@@ -40,7 +40,7 @@ export const boards: BOARD[] = [
   },
 
   {
-    id: 1,
+    id: '1',
     name: "Professional",
     cats: [
       {

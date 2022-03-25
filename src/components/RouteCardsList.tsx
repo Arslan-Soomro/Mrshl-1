@@ -7,7 +7,7 @@ const RouteCardsList = () => {
 
     if(boardId != undefined && catName != undefined){
         return(
-            <SmartCardsList boardId={Number(boardId)} catName={catName} />
+            <SmartCardsList boardId={boardId} catName={catName} />
         )
     }else{
         return <p>Incorrect URL</p>
